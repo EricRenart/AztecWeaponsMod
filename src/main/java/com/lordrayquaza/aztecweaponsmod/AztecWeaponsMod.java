@@ -28,14 +28,19 @@ public class AztecWeaponsMod {
 
     // Item declarations
     public static SacrificialKnife sacrificialKnife;
+    public static Spear spear;
 
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
         // Initialize and register items here
 
-        //Sacrificial Knife
+        // Sacrificial Knife
         sacrificialKnife = new SacrificialKnife();
         GameRegistry.registerItem(sacrificialKnife, sacrificialKnife.name);
+
+        // Spear
+        spear = new Spear();
+        GameRegistry.registerItem(spear, spear.name);
     }
 
     @EventHandler
@@ -44,6 +49,8 @@ public class AztecWeaponsMod {
             RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
             renderItem.getItemModelMesher().register(sacrificialKnife, 0,
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + sacrificialKnife.name, "inventory"));
+            renderItem.getItemModelMesher().register(spear, 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + spear.name, "inventory"));
         }
     }
 }

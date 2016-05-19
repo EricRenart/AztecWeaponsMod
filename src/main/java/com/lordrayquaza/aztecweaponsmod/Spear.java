@@ -6,14 +6,14 @@ import net.minecraft.item.ItemSword;
 /**
  * Created by Eric on 5/19/2016.
  */
+public class Spear extends ItemSword {
 
-public class SacrificialKnife extends ItemSword {
+    String name = "Spear";
 
-    String name = "SacrificialKnife";
-
-    public SacrificialKnife() {
+    public Spear() {
         super(ToolMaterial.DIAMOND);
         this.setUnlocalizedName(AztecWeaponsMod.MODID + "_" + name);
         this.setCreativeTab(CreativeTabs.tabCombat);
     }
+
 }
