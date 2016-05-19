@@ -2,6 +2,7 @@ package com.lordrayquaza.aztecweaponsmod;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.renderer.entity.RenderEntityItem;
 import net.minecraft.client.resources.ResourceIndex;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -41,6 +42,8 @@ public class AztecWeaponsMod {
     public static void init(FMLInitializationEvent event) {
         if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
             RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+            renderItem.getItemModelMesher().register(sacrificialKnife, 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + sacrificialKnife.name, "inventory"));
         }
     }
 }
