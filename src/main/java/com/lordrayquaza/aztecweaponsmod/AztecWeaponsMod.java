@@ -1,6 +1,5 @@
 package com.lordrayquaza.aztecweaponsmod;
 
-import com.example.examplemod.ExampleMod;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.entity.RenderEntityItem;
@@ -20,7 +19,7 @@ import net.minecraftforge.fml.relauncher.Side;
  * For MC 1.9
  */
 
-@Mod(modid = ExampleMod.MODID, version = ExampleMod.VERSION)
+@Mod(modid = AztecWeaponsMod.MODID, version = AztecWeaponsMod.VERSION)
 public class AztecWeaponsMod {
 
     public static final String MODID = "aztecweaponsmod";
