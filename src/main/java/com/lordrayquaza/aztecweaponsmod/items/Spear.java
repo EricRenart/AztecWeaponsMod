@@ -1,5 +1,6 @@
-package com.lordrayquaza.aztecweaponsmod;
+package com.lordrayquaza.aztecweaponsmod.items;
 
+import com.lordrayquaza.aztecweaponsmod.AztecWeaponsMod;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemSword;
 
@@ -8,7 +9,7 @@ import net.minecraft.item.ItemSword;
  */
 public class Spear extends ItemSword {
 
-    String name = "Spear";
+    public String name = "Spear";
 
     public Spear() {
         super(ToolMaterial.IRON);
