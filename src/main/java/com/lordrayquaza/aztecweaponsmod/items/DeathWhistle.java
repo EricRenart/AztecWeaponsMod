@@ -22,7 +22,7 @@ public class DeathWhistle extends Item {
 
     public DeathWhistle() {
         super();
-        this.setUnlocalizedName(AztecWeaponsMod.MODID + ":" + name);
+        this.setUnlocalizedName(AztecWeaponsMod.MODID + "_" + name);
         this.setCreativeTab(CreativeTabs.tabMisc);
     }
 

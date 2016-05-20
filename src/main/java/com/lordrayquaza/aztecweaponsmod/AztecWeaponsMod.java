@@ -1,5 +1,6 @@
 package com.lordrayquaza.aztecweaponsmod;
 
+import net.minecraft.block.Block;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -20,12 +21,14 @@ public class AztecWeaponsMod {
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
         ItemManager.preInit(event);
+        BlockManager.preinit(event);
         SoundManager.preinit(event);
     }
 
     @EventHandler
     public static void init(FMLInitializationEvent event) {
         ItemManager.init(event);
+        BlockManager.init(event);
         SoundManager.init(event);
     }
 }
