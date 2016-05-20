@@ -29,6 +29,7 @@ public class AztecWeaponsMod {
     // Item declarations
     public static SacrificialKnife sacrificialKnife;
     public static Spear spear;
+    public static DeathWhistle deathWhistle;
 
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
@@ -41,6 +42,10 @@ public class AztecWeaponsMod {
         // Spear
         spear = new Spear();
         GameRegistry.registerItem(spear, spear.name);
+
+        // Death Whistle
+        deathWhistle = new DeathWhistle();
+        GameRegistry.registerItem(deathWhistle, deathWhistle.name);
     }
 
     @EventHandler
@@ -51,6 +56,8 @@ public class AztecWeaponsMod {
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + sacrificialKnife.name, "inventory"));
             renderItem.getItemModelMesher().register(spear, 0,
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + spear.name, "inventory"));
+            renderItem.getItemModelMesher().register(deathWhistle, 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + deathWhistle.name, "inventory"));
         }
     }
 }
