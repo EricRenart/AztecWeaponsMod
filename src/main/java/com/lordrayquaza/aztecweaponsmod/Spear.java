@@ -11,7 +11,7 @@ public class Spear extends ItemSword {
     String name = "Spear";
 
     public Spear() {
-        super(ToolMaterial.DIAMOND);
+        super(ToolMaterial.IRON);
         this.setUnlocalizedName(AztecWeaponsMod.MODID + "_" + name);
         this.setCreativeTab(CreativeTabs.tabCombat);
     }
