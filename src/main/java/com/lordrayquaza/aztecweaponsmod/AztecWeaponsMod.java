@@ -1,5 +1,6 @@
 package com.lordrayquaza.aztecweaponsmod;
 
+import com.lordrayquaza.aztecweaponsmod.world.WorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
@@ -30,6 +31,7 @@ public class AztecWeaponsMod {
     @EventHandler
     public static void init(FMLInitializationEvent event) {
         BlockManager.init(event);
+        WorldGenerator.init();
         ItemManager.init(event);
         SoundManager.init(event);
     }
