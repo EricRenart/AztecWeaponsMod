@@ -15,8 +15,7 @@ public class SoundManager {
 
     public static void preinit(FMLPreInitializationEvent event) {
         //Initialize sounds and resources here
-        ResourceLocation deathWhistleResourceLocation = new ResourceLocation(AztecWeaponsMod.MODID + ":" + "deathWhistleWail");
-        System.out.print(deathWhistleResourceLocation.toString());
+        ResourceLocation deathWhistleResourceLocation = new ResourceLocation("aztecweaponsmod:deathwhistlewail");
         deathWhistleSoundEvent = new SoundEvent(deathWhistleResourceLocation);
     }
 

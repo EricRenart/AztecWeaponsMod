@@ -1,3 +1,8 @@
 {
-    "deathWhistleWail": {"category": "master","sounds": [{"name": "DeathWhistle","stream": true}]}
+    "deathwhistlewail": {
+        "category": "master",
+        "sounds": [
+            "DeathWhistle"
+        ]
+    }
 }

@@ -1,8 +1,6 @@
 package com.lordrayquaza.aztecweaponsmod;
 
-import com.lordrayquaza.aztecweaponsmod.items.DeathWhistle;
-import com.lordrayquaza.aztecweaponsmod.items.SacrificialKnife;
-import com.lordrayquaza.aztecweaponsmod.items.Spear;
+import com.lordrayquaza.aztecweaponsmod.items.*;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
@@ -24,6 +22,8 @@ public class ItemManager {
     public static SacrificialKnife sacrificialKnife;
     public static Spear spear;
     public static DeathWhistle deathWhistle;
+    public static JadeIngot jadeIngot;
+    public static ObsidianIngot obsidianIngot;
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
@@ -43,6 +43,12 @@ public class ItemManager {
         deathWhistle = new DeathWhistle();
         GameRegistry.registerItem(deathWhistle, deathWhistle.name);
 
+        // Jade/Obsidian Ingots
+        jadeIngot = new JadeIngot();
+        GameRegistry.registerItem(jadeIngot, jadeIngot.name);
+        obsidianIngot = new ObsidianIngot();
+        GameRegistry.registerItem(obsidianIngot, obsidianIngot.name);
+
 
     }
 
@@ -55,6 +61,10 @@ public class ItemManager {
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + spear.name, "inventory"));
             renderItem.getItemModelMesher().register(deathWhistle, 0,
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + deathWhistle.name, "inventory"));
+            renderItem.getItemModelMesher().register(jadeIngot, 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + jadeIngot.name, "inventory"));
+            renderItem.getItemModelMesher().register(obsidianIngot, 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + obsidianIngot.name, "inventory"));
         }
     }
 }
