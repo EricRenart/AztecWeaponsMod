@@ -6,6 +6,7 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
@@ -32,7 +33,7 @@ public class ItemManager {
         // Sacrificial Knife
         sacrificialKnife = new SacrificialKnife();
         GameRegistry.registerItem(sacrificialKnife, sacrificialKnife.name);
-        GameRegistry.addShapedRecipe(new ItemStack(ItemManager.sacrificialKnife), " o ", " o ", " s ", 'o', Blocks.obsidian, 's', Items.stick);
+        GameRegistry.addShapedRecipe(new ItemStack(ItemManager.sacrificialKnife), " o ", " o ", " s ", 'o', ItemManager.obsidianIngot, 's', Items.stick);
 
         // Spear
         spear = new Spear();
@@ -42,12 +43,15 @@ public class ItemManager {
         // Death Whistle
         deathWhistle = new DeathWhistle();
         GameRegistry.registerItem(deathWhistle, deathWhistle.name);
+        // not sure what the recipe for this is going to be yet
 
         // Jade/Obsidian Ingots
         jadeIngot = new JadeIngot();
         GameRegistry.registerItem(jadeIngot, jadeIngot.name);
+        GameRegistry.addSmelting(new ItemStack(BlockManager.jadeOre), new ItemStack(ItemManager.jadeIngot), 0.3f);
         obsidianIngot = new ObsidianIngot();
         GameRegistry.registerItem(obsidianIngot, obsidianIngot.name);
+        GameRegistry.addShapedRecipe(new ItemStack(BlockManager.jadeBlock), "iii","iii","iii",'i',ItemManager.jadeIngot);
 
 
     }

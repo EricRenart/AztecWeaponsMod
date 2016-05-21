@@ -27,4 +27,6 @@ public class SacrificialKnife extends ItemSword {
         tooltip.add("§4Slice their bellies open and rip their hearts out.");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
+
+
 }
