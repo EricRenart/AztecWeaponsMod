@@ -1,10 +1,17 @@
 package com.lordrayquaza.aztecweaponsmod.items;
 
 import com.lordrayquaza.aztecweaponsmod.AztecWeaponsMod;
+import com.lordrayquaza.aztecweaponsmod.MessageController;
+import ibxm.Player;
+import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
+import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
 
 import java.util.List;
 
@@ -28,5 +35,10 @@ public class SacrificialKnife extends ItemSword {
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 
-
+    @Override
+    public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
+        TextComponentString godsPleased = new TextComponentString(TextFormatting.GREEN + "Blood! Blood flies everywhere! Huitzilopochtli is pleased!");
+        MessageController.printChatMessage(godsPleased);
+        return super.hitEntity(stack, target, attacker);
+    }
 }

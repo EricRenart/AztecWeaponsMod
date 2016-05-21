@@ -1,6 +1,8 @@
 package com.lordrayquaza.aztecweaponsmod;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -30,5 +32,9 @@ public class AztecWeaponsMod {
         BlockManager.init(event);
         ItemManager.init(event);
         SoundManager.init(event);
+    }
+
+    public static EntityPlayer getPlayer() {
+        return Minecraft.getMinecraft().thePlayer;
     }
 }
