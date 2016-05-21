@@ -30,6 +30,16 @@ public class ItemManager {
     public static void preInit(FMLPreInitializationEvent event) {
         // Initialize and register items and recipes here
 
+        // Jade/Obsidian Ingots
+        jadeIngot = new JadeIngot();
+        GameRegistry.registerItem(jadeIngot, jadeIngot.name);
+        GameRegistry.addSmelting(new ItemStack(BlockManager.jadeOre), new ItemStack(ItemManager.jadeIngot), 0.3f);
+        GameRegistry.addShapedRecipe(new ItemStack(BlockManager.jadeBlock), "iii","iii","iii",'i',ItemManager.jadeIngot);
+
+        obsidianIngot = new ObsidianIngot();
+        GameRegistry.registerItem(obsidianIngot, obsidianIngot.name);
+        GameRegistry.addSmelting(new ItemStack(Blocks.obsidian), new ItemStack(ItemManager.obsidianIngot), 0.3f);
+
         // Sacrificial Knife
         sacrificialKnife = new SacrificialKnife();
         GameRegistry.registerItem(sacrificialKnife, sacrificialKnife.name);
@@ -44,16 +54,6 @@ public class ItemManager {
         deathWhistle = new DeathWhistle();
         GameRegistry.registerItem(deathWhistle, deathWhistle.name);
         // not sure what the recipe for this is going to be yet, but it will probably involve jade ingots and bones
-
-        // Jade/Obsidian Ingots
-        jadeIngot = new JadeIngot();
-        GameRegistry.registerItem(jadeIngot, jadeIngot.name);
-        GameRegistry.addSmelting(new ItemStack(BlockManager.jadeOre), new ItemStack(ItemManager.jadeIngot), 0.3f);
-        GameRegistry.addShapedRecipe(new ItemStack(BlockManager.jadeBlock), "iii","iii","iii",'i',ItemManager.jadeIngot);
-
-        obsidianIngot = new ObsidianIngot();
-        GameRegistry.registerItem(obsidianIngot, obsidianIngot.name);
-        GameRegistry.addSmelting(new ItemStack(Blocks.obsidian), new ItemStack(ItemManager.obsidianIngot), 0.3f);
 
 
     }
