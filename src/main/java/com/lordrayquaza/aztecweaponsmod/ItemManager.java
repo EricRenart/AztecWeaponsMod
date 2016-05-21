@@ -43,7 +43,7 @@ public class ItemManager {
         // Sacrificial Knife
         sacrificialKnife = new SacrificialKnife();
         GameRegistry.registerItem(sacrificialKnife, sacrificialKnife.name);
-        GameRegistry.addShapedRecipe(new ItemStack(ItemManager.sacrificialKnife), " o ", " o ", " s ", 'o', ItemManager.obsidianIngot, 's', Items.stick);
+        GameRegistry.addShapedRecipe(new ItemStack(ItemManager.sacrificialKnife), " o ", " o ", "js ", 'o', ItemManager.obsidianIngot, 's', Items.stick, 'j', ItemManager.jadeIngot);
 
         // Spear
         spear = new Spear();

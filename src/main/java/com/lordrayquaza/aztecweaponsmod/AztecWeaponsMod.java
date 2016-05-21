@@ -20,15 +20,15 @@ public class AztecWeaponsMod {
 
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
-        ItemManager.preInit(event);
         BlockManager.preinit(event);
+        ItemManager.preInit(event);
         SoundManager.preinit(event);
     }
 
     @EventHandler
     public static void init(FMLInitializationEvent event) {
-        ItemManager.init(event);
         BlockManager.init(event);
+        ItemManager.init(event);
         SoundManager.init(event);
     }
 }
