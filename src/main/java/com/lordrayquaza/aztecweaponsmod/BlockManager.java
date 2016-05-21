@@ -4,6 +4,8 @@ import com.lordrayquaza.aztecweaponsmod.blocks.BlockJade;
 import com.lordrayquaza.aztecweaponsmod.blocks.BlockJadeOre;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -29,6 +31,10 @@ public class BlockManager {
     public static void init(FMLInitializationEvent event) {
         if(FMLCommonHandler.instance().getSide() == Side.CLIENT) {
             RenderItem renderItem = Minecraft.getMinecraft().getRenderItem();
+            renderItem.getItemModelMesher().register(Item.getItemFromBlock(jadeOre), 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + jadeOre.name, "inventory"));
+            renderItem.getItemModelMesher().register(Item.getItemFromBlock(jadeBlock), 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + jadeBlock.name, "inventory"));
         }
     }
 
