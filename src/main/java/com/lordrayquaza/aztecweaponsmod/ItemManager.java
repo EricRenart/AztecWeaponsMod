@@ -6,8 +6,11 @@ import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -25,6 +28,12 @@ public class ItemManager {
     public static DeathWhistle deathWhistle;
     public static JadeIngot jadeIngot;
     public static ObsidianIngot obsidianIngot;
+
+    public static EagleWarriorCostume eagleWarriorHeaddress;
+    public static EagleWarriorCostume eagleWarriorTunic;
+    public static EagleWarriorCostume eagleWarriorLeggings;
+    public static EagleWarriorCostume eagleWarriorFeet;
+    public static ItemArmor.ArmorMaterial eagleWarriorCostumeMaterial;
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
@@ -54,6 +63,13 @@ public class ItemManager {
         deathWhistle = new DeathWhistle();
         GameRegistry.registerItem(deathWhistle, deathWhistle.name);
         // not sure what the recipe for this is going to be yet, but it will probably involve jade ingots and bones
+
+        //Eagle Warrior Costume/armor material
+        eagleWarriorCostumeMaterial = EnumHelper.addArmorMaterial("EAGLEWARRIORCOSTUME", "eaglewarriorcostume", 200, new int[]{1,2,2,1},26, null);
+        eagleWarriorHeaddress = new EagleWarriorCostume(eagleWarriorCostumeMaterial, 0, EntityEquipmentSlot.HEAD, "EagleWarriorHeaddress");
+        eagleWarriorTunic = new EagleWarriorCostume(eagleWarriorCostumeMaterial, 0, EntityEquipmentSlot.HEAD, "EagleWarriorTunic");
+        eagleWarriorLeggings = new EagleWarriorCostume(eagleWarriorCostumeMaterial, 0, EntityEquipmentSlot.LEGS, "EagleWarriorLeggings");
+        eagleWarriorFeet = new EagleWarriorCostume(eagleWarriorCostumeMaterial, 0, EntityEquipmentSlot.FEET, "EagleWarriorFeet");
 
 
     }
