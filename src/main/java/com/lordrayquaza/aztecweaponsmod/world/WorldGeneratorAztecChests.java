@@ -4,6 +4,7 @@ import com.lordrayquaza.aztecweaponsmod.BlockManager;
 import com.lordrayquaza.aztecweaponsmod.MessageController;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkGenerator;
@@ -32,9 +33,16 @@ public class WorldGeneratorAztecChests implements IWorldGenerator {
     }
 
     public void generateAztecChests(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider) {
-        for(int i = 0; i < 1; i++) {
-            int blockX = chunkX * 256 + random.nextInt(16);
-            int blockZ = chunkZ * 256 + random.nextInt(16);
+        int iterations = 2;
+        // Make aztec chests more common in Jungle biomes
+        if(world.getBiomeGenForCoords(world.getTopSolidOrLiquidBlock(new BlockPos(chunkX * 16, 10, chunkZ * 16))).getBiomeName().equals(Biomes.jungle.getBiomeName()) ||
+                world.getBiomeGenForCoords(world.getTopSolidOrLiquidBlock(new BlockPos(chunkX * 16, 10, chunkZ * 16))).getBiomeName().equals(Biomes.jungleEdge.getBiomeName()) ||
+                world.getBiomeGenForCoords(world.getTopSolidOrLiquidBlock(new BlockPos(chunkX * 16, 10, chunkZ * 16))).getBiomeName().equals(Biomes.jungleHills.getBiomeName())) {
+            iterations = 5;
+        }
+        for(int i = 0; i < iterations; i++) {
+            int blockX = chunkX * 192 + random.nextInt(128);
+            int blockZ = chunkZ * 192 + random.nextInt(128);
             BlockPos topBlock = world.getTopSolidOrLiquidBlock(new BlockPos(blockX, 10, blockZ));
             //System.out.println("Top block: "+topBlock.toString());
             Block aztecChest = BlockManager.aChest;
