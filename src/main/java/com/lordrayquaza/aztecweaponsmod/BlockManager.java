@@ -1,5 +1,6 @@
 package com.lordrayquaza.aztecweaponsmod;
 
+import com.lordrayquaza.aztecweaponsmod.blocks.AztecChest;
 import com.lordrayquaza.aztecweaponsmod.blocks.BlockJade;
 import com.lordrayquaza.aztecweaponsmod.blocks.BlockJadeOre;
 import net.minecraft.client.Minecraft;
@@ -20,12 +21,15 @@ public class BlockManager {
     //Declare blocks here
     public static BlockJadeOre jadeOre;
     public static BlockJade jadeBlock;
+    public static AztecChest aChest;
 
     public static void preinit(FMLPreInitializationEvent event) {
         jadeOre = new BlockJadeOre();
         GameRegistry.registerBlock(jadeOre,jadeOre.name);
         jadeBlock = new BlockJade();
         GameRegistry.registerBlock(jadeBlock, jadeBlock.name);
+        aChest = new AztecChest();
+        GameRegistry.registerBlock(aChest, aChest.name);
     }
 
     public static void init(FMLInitializationEvent event) {
@@ -35,6 +39,8 @@ public class BlockManager {
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + jadeOre.name, "inventory"));
             renderItem.getItemModelMesher().register(Item.getItemFromBlock(jadeBlock), 0,
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + jadeBlock.name, "inventory"));
+            renderItem.getItemModelMesher().register(Item.getItemFromBlock(aChest), 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + aChest.name, "inventory"));
         }
     }
 

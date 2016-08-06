@@ -3,6 +3,7 @@ package com.lordrayquaza.aztecweaponsmod.items;
 import com.lordrayquaza.aztecweaponsmod.AztecWeaponsMod;
 import com.lordrayquaza.aztecweaponsmod.ItemManager;
 import com.lordrayquaza.aztecweaponsmod.MessageController;
+import com.lordrayquaza.aztecweaponsmod.PlayerManager;
 import ibxm.Player;
 import net.minecraft.client.Minecraft;
 import net.minecraft.creativetab.CreativeTabs;
@@ -32,14 +33,15 @@ public class SacrificialKnife extends ItemSword {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        tooltip.add("§4Slice their bellies open and rip their hearts out!");
+        tooltip.add("ï¿½4Slice their bellies open and rip their hearts out!");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 
     @Override
     public boolean hitEntity(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
-        TextComponentString godsPleased = new TextComponentString(TextFormatting.GREEN + "Blood! Blood flies everywhere! Huitzilopochtli is pleased!");
-        MessageController.printChatMessage(godsPleased);
+        MessageController.printChatMessage("Blood! Blood flies everywhere! Huitzilopochtli is pleased with your sacrifice!", TextFormatting.DARK_RED);
+        PlayerManager.spirit += 5;
+        MessageController.printChatMessage("Your spirit level is now "+PlayerManager.spirit, TextFormatting.AQUA);
         return super.hitEntity(stack, target, attacker);
     }
 }

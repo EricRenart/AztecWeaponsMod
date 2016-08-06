@@ -8,10 +8,13 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 public class WorldGenerator {
 
     public static WorldGeneratorOre oreGen;
+    public static WorldGeneratorAztecChests chestGen;
 
     public static void init() {
         oreGen = new WorldGeneratorOre();
+        chestGen = new WorldGeneratorAztecChests();
         GameRegistry.registerWorldGenerator(oreGen, 10);
+        GameRegistry.registerWorldGenerator(chestGen, 10);
     }
 
 }

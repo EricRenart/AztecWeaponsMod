@@ -1,8 +1,9 @@
-item.aztecweaponsmod_SacrificialKnife.name=§6Sacrificial Knife
-item.aztecweaponsmod_Macuahuitl.name=§6Macuahuitl
-item.aztecweaponsmod_Spear.name=§6Spear
-item.aztecweaponsmod_DeathWhistle.name=§6Death Whistle
+item.aztecweaponsmod_SacrificialKnife.name=ï¿½6Sacrificial Knife
+item.aztecweaponsmod_Macuahuitl.name=ï¿½6Macuahuitl
+item.aztecweaponsmod_Spear.name=ï¿½6Spear
+item.aztecweaponsmod_DeathWhistle.name=ï¿½6Death Whistle
 item.aztecweaponsmod_JadeIngot.name=Jade Ingot
 item.aztecweaponsmod.ObsidianIngot.name=Obsidian Ingot
 tile.aztecweaponsmod_JadeOre.name=Jade Ore
 tile.aztecweaponsmod_JadeBlock.name=Block of Jade
+tile.aztecweaponsmod_AztecChest.name=Ancient Aztec Chest

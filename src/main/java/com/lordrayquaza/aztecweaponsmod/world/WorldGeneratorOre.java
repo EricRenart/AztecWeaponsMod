@@ -24,6 +24,7 @@ public class WorldGeneratorOre implements IWorldGenerator {
                 break;
             case 0:
                 generateJade(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
+
             case 1:
                 break;
         }
@@ -39,4 +40,6 @@ public class WorldGeneratorOre implements IWorldGenerator {
             (new WorldGenMinable(BlockManager.jadeOre.getDefaultState(), 5 + random.nextInt(5))).generate(world, random, pos);
         }
     }
+
+
 }

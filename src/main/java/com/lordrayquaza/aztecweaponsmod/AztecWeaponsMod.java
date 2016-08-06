@@ -39,4 +39,5 @@ public class AztecWeaponsMod {
     public static EntityPlayer getPlayer() {
         return Minecraft.getMinecraft().thePlayer;
     }
+
 }
