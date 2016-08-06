@@ -1,6 +1,7 @@
 package com.lordrayquaza.aztecweaponsmod.items;
 
 import com.lordrayquaza.aztecweaponsmod.AztecWeaponsMod;
+import com.lordrayquaza.aztecweaponsmod.ItemManager;
 import com.lordrayquaza.aztecweaponsmod.MessageController;
 import ibxm.Player;
 import net.minecraft.client.Minecraft;
@@ -24,14 +25,14 @@ public class SacrificialKnife extends ItemSword {
     public String name = "SacrificialKnife";
 
     public SacrificialKnife() {
-        super(ToolMaterial.DIAMOND);
+        super(ItemManager.obsidianMaterial);
         this.setUnlocalizedName(AztecWeaponsMod.MODID + "_" + name);
         this.setCreativeTab(CreativeTabs.tabCombat);
     }
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        tooltip.add("ยง4Slice their bellies open and rip their hearts out.");
+        tooltip.add("ง4Slice their bellies open and rip their hearts out!");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 

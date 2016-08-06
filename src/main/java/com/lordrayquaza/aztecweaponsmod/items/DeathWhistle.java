@@ -34,7 +34,7 @@ public class DeathWhistle extends Item {
 
     @Override
     public void addInformation(ItemStack stack, EntityPlayer playerIn, List<String> tooltip, boolean advanced) {
-        tooltip.add("ยง4Screams of a thousand corpses");
+        tooltip.add("ง4Screams of a thousand corpses");
         super.addInformation(stack, playerIn, tooltip, advanced);
     }
 }

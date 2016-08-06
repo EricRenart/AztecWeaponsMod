@@ -1,14 +1,18 @@
 package com.lordrayquaza.aztecweaponsmod;
 
-import com.lordrayquaza.aztecweaponsmod.items.*;
+import com.lordrayquaza.aztecweaponsmod.items.DeathWhistle;
+import com.lordrayquaza.aztecweaponsmod.items.JadeIngot;
+import com.lordrayquaza.aztecweaponsmod.items.Macuahuitl;
+import com.lordrayquaza.aztecweaponsmod.items.ObsidianIngot;
+import com.lordrayquaza.aztecweaponsmod.items.SacrificialKnife;
+import com.lordrayquaza.aztecweaponsmod.items.Spear;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderItem;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.util.EnumHelper;
 import net.minecraftforge.fml.common.FMLCommonHandler;
@@ -24,16 +28,14 @@ import net.minecraftforge.fml.relauncher.Side;
 public class ItemManager {
     // Item declarations
     public static SacrificialKnife sacrificialKnife;
+    public static Macuahuitl macuahuitl;
     public static Spear spear;
     public static DeathWhistle deathWhistle;
     public static JadeIngot jadeIngot;
     public static ObsidianIngot obsidianIngot;
-
-    public static EagleWarriorCostume eagleWarriorHeaddress;
-    public static EagleWarriorCostume eagleWarriorTunic;
-    public static EagleWarriorCostume eagleWarriorLeggings;
-    public static EagleWarriorCostume eagleWarriorFeet;
-    public static ItemArmor.ArmorMaterial eagleWarriorCostumeMaterial;
+    
+    // Obsidian Tool Material
+    public static ToolMaterial obsidianMaterial;
 
     @Mod.EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
@@ -49,11 +51,19 @@ public class ItemManager {
         GameRegistry.registerItem(obsidianIngot, obsidianIngot.name);
         GameRegistry.addSmelting(new ItemStack(Blocks.obsidian), new ItemStack(ItemManager.obsidianIngot), 0.3f);
 
+        // Obsidian Tool Material
+        obsidianMaterial = EnumHelper.addToolMaterial("Obsidian", 3, 1800, 10.0f, 10.0f, 20);
+        
         // Sacrificial Knife
         sacrificialKnife = new SacrificialKnife();
         GameRegistry.registerItem(sacrificialKnife, sacrificialKnife.name);
         GameRegistry.addShapedRecipe(new ItemStack(ItemManager.sacrificialKnife), " o ", " o ", "js ", 'o', ItemManager.obsidianIngot, 's', Items.stick, 'j', ItemManager.jadeIngot);
 
+        // Macuahuitl
+        macuahuitl = new Macuahuitl(ItemManager.obsidianMaterial);
+        GameRegistry.registerItem(macuahuitl, macuahuitl.name);
+        GameRegistry.addShapedRecipe(new ItemStack(ItemManager.macuahuitl), " o "," o ","nsn",'o', ItemManager.obsidianIngot, 'n', Items.gold_nugget, 's', Items.stick);
+        
         // Spear
         spear = new Spear();
         GameRegistry.registerItem(spear, spear.name);
@@ -64,14 +74,6 @@ public class ItemManager {
         GameRegistry.registerItem(deathWhistle, deathWhistle.name);
         // not sure what the recipe for this is going to be yet, but it will probably involve jade ingots and bones
 
-        //Eagle Warrior Costume/armor material
-        eagleWarriorCostumeMaterial = EnumHelper.addArmorMaterial("EAGLEWARRIORCOSTUME", "eaglewarriorcostume", 200, new int[]{1,2,2,1},26, null);
-        eagleWarriorHeaddress = new EagleWarriorCostume(eagleWarriorCostumeMaterial, 0, EntityEquipmentSlot.HEAD, "EagleWarriorHeaddress");
-        eagleWarriorTunic = new EagleWarriorCostume(eagleWarriorCostumeMaterial, 0, EntityEquipmentSlot.HEAD, "EagleWarriorTunic");
-        eagleWarriorLeggings = new EagleWarriorCostume(eagleWarriorCostumeMaterial, 0, EntityEquipmentSlot.LEGS, "EagleWarriorLeggings");
-        eagleWarriorFeet = new EagleWarriorCostume(eagleWarriorCostumeMaterial, 0, EntityEquipmentSlot.FEET, "EagleWarriorFeet");
-
-
     }
 
     public static void init(FMLInitializationEvent event) {
@@ -81,6 +83,8 @@ public class ItemManager {
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + sacrificialKnife.name, "inventory"));
             renderItem.getItemModelMesher().register(spear, 0,
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + spear.name, "inventory"));
+            renderItem.getItemModelMesher().register(macuahuitl, 0,
+                    new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + macuahuitl.name, "inventory"));
             renderItem.getItemModelMesher().register(deathWhistle, 0,
                     new ModelResourceLocation(AztecWeaponsMod.MODID + ":" + deathWhistle.name, "inventory"));
             renderItem.getItemModelMesher().register(jadeIngot, 0,
