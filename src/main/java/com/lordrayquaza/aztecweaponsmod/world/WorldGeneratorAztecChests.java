@@ -44,10 +44,7 @@ public class WorldGeneratorAztecChests implements IWorldGenerator {
             int blockX = chunkX * 192 + random.nextInt(128);
             int blockZ = chunkZ * 192 + random.nextInt(128);
             BlockPos topBlock = world.getTopSolidOrLiquidBlock(new BlockPos(blockX, 10, blockZ));
-            //System.out.println("Top block: "+topBlock.toString());
-            Block aztecChest = BlockManager.aChest;
-            IBlockState aztecBlockState = aztecChest.getDefaultState();
-            world.setBlockState(topBlock, aztecBlockState);
+            BlockManager.replaceBlock(world, topBlock, BlockManager.aChest);
         }
 
     }
