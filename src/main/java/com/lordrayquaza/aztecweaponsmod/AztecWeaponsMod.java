@@ -1,5 +1,6 @@
 package com.lordrayquaza.aztecweaponsmod;
 
+import com.lordrayquaza.aztecweaponsmod.commands.CommandAbout;
 import com.lordrayquaza.aztecweaponsmod.world.WorldGenerator;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -8,6 +9,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 
 
 /**
@@ -19,13 +22,14 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 public class AztecWeaponsMod {
 
     public static final String MODID = "aztecweaponsmod";
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.2.1";
 
     @EventHandler
     public static void preInit(FMLPreInitializationEvent event) {
         BlockManager.preinit(event);
         ItemManager.preInit(event);
         SoundManager.preinit(event);
+
     }
 
     @EventHandler
@@ -34,6 +38,11 @@ public class AztecWeaponsMod {
         WorldGenerator.init();
         ItemManager.init(event);
         SoundManager.init(event);
+    }
+
+    @EventHandler
+    public void serverLoad(FMLServerStartingEvent event) {
+        event.registerServerCommand(new CommandAbout());
     }
 
     public static EntityPlayer getPlayer() {
